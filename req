@@ -1,0 +1,6 @@
+ipdb==0.8.1
+ipython==3.2.1
+lxml==3.4.4
+six==1.9.0
+suds-jurko==0.6
+wheel==0.24.0
