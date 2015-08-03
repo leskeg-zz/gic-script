@@ -1,7 +1,5 @@
 # gic-script
 Script to get information from Exchange Service SOAP WSDL.
-
-<br /><br />
 Setup
 <br />
 pip install -r req
