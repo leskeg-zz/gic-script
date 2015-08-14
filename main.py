@@ -4,11 +4,13 @@ from datetime import datetime
 from ipdb import set_trace
 import sys
 
-start_date = sys.argv[1]
-end_date = sys.argv[2]
-url = 'http://ocpp.itcl.es/REE/ExchangeInformation.svc?wsdl'
-client = Client(url)
-print(client.service.GetInformation( \
-	datetime(int(start_date.split('/')[2]), int(start_date.split('/')[1]), int(start_date.split('/')[0]), int(start_date.split('/')[3]), 0, 0, 0), \
-	datetime(int(end_date.split('/')[2]), int(end_date.split('/')[1]), int(end_date.split('/')[0]), int(end_date.split('/')[3]), 0, 0, 0))
-)
+answer = client.service.GetInformation(datetime.now() - timedelta(minutes=60),datetime.now())
+filename=time.strftime("%Y%m%d")
+text_file=open(filename + ".xls", "a")
+
+for element in answer.values:
+	chargePoints[element.address] = element.valueWh
+	print(element.idChargePoint + '\t' + element.city + '\t' + element.address + '\t' + element.rechargeType + '\t' + element.startDateTime.strftime("%Y-%m-%d %H:%M:%S") + '\t' + element.endDateTime.strftime("%Y-%m-%d %H:%M:%S") + '\t' + element.rechargeDateTime.strftime("%Y-%m-%d %H:%M:%S") + element.valueWh )
+	text_file.write(element.idChargePoint + '\t' + element.city + '\t' + element.address + '\t' + element.rechargeType + '\t' + element.startDateTime.strftime("%Y-%m-%d %H:%M:%S") + '\t' + element.endDateTime.strftime("%Y-%m-%d %H:%M:%S") + '\t' + element.rechargeDateTime.strftime("%Y-%m-%d %H:%M:%S") + '\t' + element.valueWh + "\n" )
+
+text_file.close()
