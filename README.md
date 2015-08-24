@@ -8,6 +8,7 @@ pip install -r req
 Execution
 <br />
 python main.py (to get data from last day)
+<br />
 python plot.py (to plot data every 30 minutes)
 <br /><br />
 
