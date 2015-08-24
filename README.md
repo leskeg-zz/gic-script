@@ -5,11 +5,11 @@ Setup
 <br />
 pip install -r req
 <br /><br />
-Usage
+Execution
 <br />
-python main.py start_date end_date 
-(format dd/mm/YYYY/hh)
+python main.py (to get data from last day)
+python plot.py (to plot data every 30 minutes)
 <br /><br />
-Example
+
 <br />
-python main.py 29/07/2015/10 29/07/2015/11
+python main.py
